@@ -87,7 +87,7 @@ class Controller extends BaseController
 
         $data = $section->getCreateData($request);
         if ($section->sortable) {
-            $data[$section->getSortField()] = $section->getModel()->max($section->getSortField());
+            $data[$section->getSortField()] = $section->getModel()->max($section->getSortField()) + 1;
         }
         $section->getModel()->create($data);
 
