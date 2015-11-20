@@ -1,0 +1,22 @@
+{
+    "name": "axn/laravel-crudivor",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@bitbucket.org:axn/laravel-notifier.git"
+        }, {
+            "type": "vcs",
+            "url": "git@bitbucket.org:axn/laravel-request-filters.git"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^5.0",
+        "axn/laravel-notifier": "~1.0",
+        "axn/laravel-request-filters": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Axn\\Crudivor\\": "src/"
+        }
+    }
+}
