@@ -234,7 +234,7 @@ class Section
     {
         $this->sortable = $bool;
 
-        if (!empty($field)) {
+        if (!empty($field) || !$bool) {
             $this->sortField = $field;
         }
 

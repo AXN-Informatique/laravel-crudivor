@@ -10,6 +10,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Axn\LaravelNotifier\Contract as Notifier;
+use DB;
 
 class Controller extends BaseController
 {
@@ -86,7 +87,7 @@ class Controller extends BaseController
 
         $data = $section->getCreateData($request);
         if ($section->sortable) {
-            $data['ordre'] = $section->getModel()->max($section->getSortField());
+            $data[$section->getSortField()] = $section->getModel()->max($section->getSortField());
         }
         $section->getModel()->create($data);
 
