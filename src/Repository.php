@@ -8,24 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Repository
 {
     /**
-     *
      * @var Router
      */
     protected $router;
 
     /**
+     * Instance de section avec les informations par défaut des autres sections.
      *
      * @var Section
      */
     protected $default;
 
     /**
+     * Liste des sections enregistrées.
      *
      * @var array[Section]
      */
     protected $sections = [];
 
     /**
+     * Constructeur.
      *
      * @return void
      */
@@ -37,6 +39,7 @@ class Repository
     }
 
     /**
+     * Enregistre une nouvelle section.
      *
      * @param  string       $slug
      * @param  string|Model $model
@@ -54,6 +57,7 @@ class Repository
     }
 
     /**
+     * Retourne l'instance de section par défaut.
      *
      * @return Section
      */
@@ -63,6 +67,7 @@ class Repository
     }
 
     /**
+     * Retourne la section correspondant à la route courante.
      *
      * @return Section
      */
@@ -74,6 +79,7 @@ class Repository
     }
 
     /**
+     * Retourne une section via la slug.
      *
      * @param  string
      * @return Section
@@ -84,6 +90,7 @@ class Repository
     }
 
     /**
+     * Retourne la liste de toutes les sections.
      *
      * @return array[Section]
      */

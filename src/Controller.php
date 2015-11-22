@@ -27,6 +27,7 @@ class Controller extends BaseController
     protected $notifier;
 
     /**
+     * Constructeur.
      *
      * @param  Repository $repository
      * @param  Notifier   $notifier
@@ -40,6 +41,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Affiche la liste des enregistrements avec formulaire d'ajout.
      *
      * @return Response
      */
@@ -56,6 +58,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Affiche le formulaire d'édition d'un enregistrement.
      *
      * @param  mixed   $id
      * @return Response
@@ -74,6 +77,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Insert un nouvel enregistrement.
      *
      * @param  Request $request
      * @return Response
@@ -97,6 +101,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Modifie un enregistrement existant.
      *
      * @param  mixed   $id
      * @param  Request $request
@@ -117,6 +122,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Modifie le libellé d'un enregistrement.
      *
      * @param  mixed   $id
      * @param  Request $request
@@ -140,6 +146,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Active un enregistrement.
      *
      * @param  mixed   $id
      * @return Response
@@ -158,6 +165,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Désactive un enregistrement.
      *
      * @param  mixed   $id
      * @return Response
@@ -176,6 +184,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Modifie l'ordre des enregistrements.
      *
      * @param  Request $request
      * @return Response
@@ -200,6 +209,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Supprime un enregistrement.
      *
      * @param  mixed   $id
      * @return Response
@@ -221,6 +231,7 @@ class Controller extends BaseController
     }
 
     /**
+     * Récupère et retourne la liste des enregistrements (ordonnée ou non).
      *
      * @param  Section $section
      * @return Collection|LengthAwarePaginator

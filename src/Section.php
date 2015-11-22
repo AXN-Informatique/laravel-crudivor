@@ -10,96 +10,112 @@ use Axn\RequestFilters\Filters;
 class Section
 {
     /**
+     * Slug permettant d'identifier la section.
      *
      * @var string|null
      */
     protected $slug = null;
 
     /**
+     * Instance du modèle du paramètre à gérer dans la section.
      *
      * @var string|Model|null
      */
     protected $model = null;
 
     /**
+     * La section permet-elle l'ajout d'enregistrement ?
      *
      * @var boolean
      */
     public $creatable = false;
 
     /**
+     * La section permet-elle l'édition des enregistrements ?
      *
      * @var boolean
      */
     public $editable = false;
 
     /**
+     * La section permet-elle l'édition à la volée des libellés des enregistrements ?
      *
      * @var boolean
      */
     public $contentEditable = false;
 
     /**
+     * La section permet-elle d'activier/désactiver les enregistrements ?
      *
      * @var boolean
      */
     public $activatable = false;
 
     /**
+     * La section permet-elle de trier manuellement les enregistrements ?
      *
      * @var boolean
      */
     public $sortable = false;
 
     /**
+     * La section permet-elle de supprimer les enregistrements ?
      *
      * @var boolean
      */
     public $destroyable = false;
 
     /**
+     * Options pour l'ajout d'un enregistrement.
      *
      * @var array
      */
     protected $createOptions = [];
 
     /**
+     * Options pour l'édition d'un enregistrement.
      *
      * @var array
      */
     protected $editOptions = [];
 
     /**
+     * Options pour l'édition à la volée du libellé d'un enregistrement.
      *
      * @var array
      */
     protected $editContentOptions = [];
 
     /**
+     * Nom du champ (libellé) pouvant être édité à la volée dans la liste.
      *
      * @var string
      */
     protected $editContentField= '';
 
     /**
+     * Nom du champ définissant l'enregistrement comme actif ou inactif.
      *
      * @var string
      */
     protected $activeField = '';
 
     /**
+     * Nom du champ définissant l'ordre de l'enregistrement.
      *
      * @var string
      */
     protected $sortField = '';
 
     /**
+     * Options des routes de la section.
      *
      * @var array
      */
     protected $routesOptions = [];
 
     /**
+     * Modifie le slug de la section.
      *
      * @param  string $slug
      * @return void
@@ -110,6 +126,7 @@ class Section
     }
 
     /**
+     * Retourne le slug de la section.
      *
      * @return string
      */
@@ -119,6 +136,7 @@ class Section
     }
 
     /**
+     * Modifie le modèle.
      *
      * @param  string|Model $model
      * @return void
@@ -129,6 +147,7 @@ class Section
     }
 
     /**
+     * Instancie et retourne le modèle.
      *
      * @return Model
      */
@@ -142,6 +161,7 @@ class Section
     }
 
     /**
+     * Indique si cette section permet d'ajouter des enregistrements.
      *
      * @param  boolean $bool
      * @param  array   $options
@@ -159,6 +179,7 @@ class Section
     }
 
     /**
+     * Indique si cette section permet de modifier des enregistrements.
      *
      * @param  boolean $bool
      * @param  array   $options
@@ -176,6 +197,7 @@ class Section
     }
 
     /**
+     * Alias à creatable() + editable().
      *
      * @param  boolean $bool
      * @param  array   $options
@@ -187,6 +209,7 @@ class Section
     }
 
     /**
+     * Indique si la section permet l'édition à la volée du libellé d'un enregistrement.
      *
      * @param  boolean $bool
      * @param  string  $field
@@ -208,6 +231,7 @@ class Section
     }
 
     /**
+     * Indique si la section permet d'activer/désactiver un enregistrement.
      *
      * @param  boolean $bool
      * @param  string  $field
@@ -225,6 +249,7 @@ class Section
     }
 
     /**
+     * Indique si la section permet d'ordonner manuellement les enregistrements.
      *
      * @param  boolean $bool
      * @param  string  $field
@@ -242,6 +267,7 @@ class Section
     }
 
     /**
+     * Indique si la section permet de supprimer des enregistrements.
      *
      * @param  boolean $bool
      * @return Section
@@ -254,6 +280,7 @@ class Section
     }
 
     /**
+     * Options à appliquer à l'ensemble des routes de la section.
      *
      * @param  array $options
      * @return Section
@@ -266,6 +293,7 @@ class Section
     }
 
     /**
+     * Filtre/nettoie les paramètres de la requête pour la création d'un enregistrement.
      *
      * @param  Request $request
      * @return void
@@ -280,6 +308,7 @@ class Section
     }
 
     /**
+     * Filtre/nettoie les paramètres de la requête pour la modification d'un enregistrement.
      *
      * @param  Request $request
      * @return void
@@ -294,6 +323,8 @@ class Section
     }
 
     /**
+     * Filtre/nettoie les paramètres de la requête pour la modification à la volée
+     * du libellé d'un enregistrement.
      *
      * @param  Request $request
      * @return void
@@ -310,6 +341,7 @@ class Section
     }
 
     /**
+     * Retourne les règles de validation pour la création d'un enregistrement.
      *
      * @param  Request $request
      * @return array
@@ -328,6 +360,7 @@ class Section
     }
 
     /**
+     * Retourne les règles de validation pour la création d'un enregistrement.
      *
      * @param  Request $request
      * @return array
@@ -346,6 +379,7 @@ class Section
     }
 
     /**
+     * Retourne les règles de validation pour la modification d'un enregistrement.
      *
      * @return array
      */
@@ -361,6 +395,7 @@ class Section
     }
 
     /**
+     * Retourne les messages d'erreur de validation à la création d'un enregistrement.
      *
      * @param  Request $request
      * @return array
@@ -379,6 +414,7 @@ class Section
     }
 
     /**
+     * Retourne les messages d'erreur de validation à la modification d'un enregistrement.
      *
      * @param  Request $request
      * @return void
@@ -397,6 +433,8 @@ class Section
     }
 
     /**
+     * Retourne les messages d'erreur de validation à la modification à la volée
+     * du libellé d'un enregistrement.
      *
      * @param  Request $request
      * @return array
@@ -423,6 +461,7 @@ class Section
     }
 
     /**
+     * Retourne les données pour la création d'un enregistrement.
      *
      * @param  Request $request
      * @return array
@@ -437,6 +476,7 @@ class Section
     }
 
     /**
+     * Retourne les données pour la modification d'un enregistrement.
      *
      * @param  Request $request
      * @return array
@@ -451,6 +491,7 @@ class Section
     }
 
     /**
+     * Retourne le nom du champ pouvant être édité à la volée.
      *
      * @return string|null
      */
@@ -460,6 +501,7 @@ class Section
     }
 
     /**
+     * Retourne le nom du champ définissant l'état actif/inactif des enregistrements.
      *
      * @return string|null
      */
@@ -469,6 +511,7 @@ class Section
     }
 
     /**
+     * Retourne le nom du champ définissant l'ordre les enregistrements.
      *
      * @return string|null
      */
@@ -478,6 +521,7 @@ class Section
     }
 
     /**
+     * Retourne les options des routes.
      *
      * @return array
      */
@@ -487,6 +531,7 @@ class Section
     }
 
     /**
+     * Retourne le nom complet d'une vue.
      *
      * @param  string     $view
      * @return string
@@ -501,6 +546,7 @@ class Section
     }
 
     /**
+     * Retourne le texte correspondant à la clé.
      *
      * @param  string  $id
 	 * @param  array   $parameters
