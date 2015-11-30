@@ -23,7 +23,6 @@ foreach (app('crudivor')->all() as $slug => $section)
                 'as'   => "crudivor.$slug.edit",
                 'uses' => "$controller@edit"
             ]);
-
             put($slug.'/{id}', [
                 'as'   => "crudivor.$slug.update",
                 'uses' => "$controller@update"
