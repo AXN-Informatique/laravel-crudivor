@@ -1,3 +1,5 @@
+***abandonned***
+
 # Laravel Crudivor
 
 Ce package permet d'obtenir des pages CRUD simples avec le framework Laravel 5
