@@ -1,73 +1,70 @@
-***abandonned***
-
 # Laravel Crudivor
 
-Ce package permet d'obtenir des pages CRUD simples avec le framework Laravel 5
-sans avoir à générer de fichiers. Utile notamment pour gérer les tables de paramètres !
+This package helps you to get simple CRUD pages with Laravel 5 without having to generate any file. It's especially useful to generate parameters tables.
+
+- **Author:** AXN Informatique
+- **Website:** [http://www.axn-informatique.com/](http://www.axn-informatique.com/)
+- **Version:** 1.0.0 (Not updated anymore)
+- **License:** MIT license (see the license file)
+_____________________________________________________________________________________
+
+* [Installation](#installation)
+* [Usage](#usage)
 
 ## Installation
 
-Inclure le package avec Composer :
+To install Laravel Crudivor as a Composer package to be used with Laravel 5, simply run:
 
 ```
 composer require axn/laravel-crudivor
 ```
 
-Ajouter le service provider au tableau des providers dans `config/app.php` :
+Once it's installed, you can register the service provider in `config/app.php`:
 
 ```
 'Axn\Crudivor\ServiceProvider',
 ```
 
-Ajouter l'alias de la façade au tableau des alias dans `config/app.php` :
+Add the alias of the facade in the aliases table in `config/app.php`:
 
 ```
 'Crudivor' => 'Axn\Crudivor\Facade',
 ```
 
-## Utilisation
+## Usage
 
-Voir fichier `samples/crudivor.php` (qui a été copié dans `app` si vous avez
-utilisé la commande `artisan vendor:publish`).
+See the file `samples/crudivor.php` (who has been copied in `app` if you used the command : `artisan vendor:publish`).
 
-Utiliser la méthode `Crudivor::register()` pour ajouter une section CRUD, en lui
-passant en paramètre le slug permettant de l'identifier et le nom de classe du
-modèle.
+Use the method `Crudivor::register()` to add a CRUD section, by adding in parameter the slug to identify it, and the class name of the model. 
 
-Exemple :
+Example:
 
 ```php
 Crudivor::register('profiles', 'App\Models\Profile');
 ```
 
-Il est ensuite possible de chainer des méthodes pour configurer la section :
+After that it's possible to chain methods to configure the section: 
 
-- **creatable**($bool = true, array $options = []) : Indique si la section permet d'ajouter des enregistrements.
-- **editable**($bool = true, array $options = []) : Indique si la section permet de modifier des enregistrements.
-- **creatableAndEditable**($bool = true, array $options = []) : Alias à creatable() + editable().
-- **contentEditable**($bool = true, $field = '', array $options = []) : Indique si la section permet l'édition à la volée du libellé d'un enregistrement.
-- **activatable**($bool = true, $field = '') : Indique si la section permet d'activer/désactiver un enregistrement.
-- **sortable**($bool = true, $field = '') : Indique si la section permet d'ordonner manuellement les enregistrements.
-- **destroyable**($bool = true) : Indique si la section permet de supprimer des enregistrements.
-- **routesOptions**(array $options = []) : Options à appliquer à l'ensemble des routes de la section.
+- **creatable**($bool = true, array $options = []) : Indicate if the section is allowed to add records. 
+- **editable**($bool = true, array $options = []) : Indicate if the section is allowed to modify records. 
+- **creatableAndEditable**($bool = true, array $options = []) : Alias of creatable() + editable().
+- **contentEditable**($bool = true, $field = '', array $options = []) : Indicate if the section is allowed to edit on the fly the wording of a record.
+- **activatable**($bool = true, $field = '') : Indicate if the section is allowed to activate / deactivate a record. 
+- **sortable**($bool = true, $field = '') : Indicate if the section is allowed to manually order records.
+- **destroyable**($bool = true) : Indicate if the section is allowed to delete records.
+- **routesOptions**(array $options = []) : Options to apply to all the routes of the section.
 
-Le paramètre `$options` des méthodes `creatable()`, `editable()` et `creatableAndEditable()`
-est un tableau contenant les informations suivantes :
+The parameter `$options` of `creatable()`, `editable()` and `creatableAndEditable()` methods is an array containing following informations:
 
-- **filters** (array) : Règles de filtrage à appliquer sur chaque champ (voir package `axn/laravel-request-filters`).
-- **rules** (array ou Closure) : Règles de validation pour chaque champ.
-- **messages** (array ou Closure) : Messages d'erreur de validation pour chaque champ/règle.
-- **data** (Closure) : données à insérer/modifier via le modèle.
+- **filters** (array) : filter rules to apply on each field (see `axn/laravel-request-filters` package).
+- **rules** (array or Closure) : validation rule for each field.
+- **messages** (array or Closure) : validation error message for each field / rule.
+- **data** (Closure) : data to insert, modify with the model.
 
-Le paramètre `$options` de la méthode `contentEditable()` contient les mêmes informations
-à la différence qu'il n'y a pas besoin de spécifier le champ sur lequel appliquer
-les filtres, les règles de validation ou les messages d'erreur vu que le champ est
-unique et spécifié via le paramètre `$field`.
+The parameter `$options` of `contentEditable()` method, contains same informations. 
+But in this case it's not necessary to specify the field on which apply filters, validation rules, or error messages, because the field is unique and defined in the `$field` parameter.
 
-ATTENTION ! Concernant la méthode `sortable()`, si vous spécifiez `$bool` à FALSE
-mais que vous renseigner `$field`, les enregistrements ne pourront pas être triés
-manuellement mais la liste sera quand même ordonnée selon `$field`.
+WARNING : For the `sortable()` method, if you specify `$bool` to FALSE, but `$field` is not empty, records won't be able to be manually sorted, but the list will still be sorted thanks to the `$field` parameter.
 
-Enfin, il est possible de spécifier les informations par défaut pour l'ensemble
-des sections grâce à l'instance `Crudivor::getDefault()`, s'utilise exactement
-de la même manière que `Crudivor::register()` pour le chainage des méthodes.
+To conclude, it's also possible to specify default informations for all sections thanks to `Crudivor::getDefault()` instance.
+The usage is the same than `Crudivor::register()` to chain methods.
